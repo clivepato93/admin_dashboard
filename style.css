@@ -1,0 +1,332 @@
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+/* 1. Use a more-intuitive box-sizing model */
+:root {
+  --width: 21vw;
+  --scale: calc(calc(var(--width)) * 0.1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+body {
+  height: 100vh;
+  font-weight: "Roboto", sans-serif;
+}
+.grid {
+  display: grid;
+}
+
+.container {
+  height: 100%;
+
+  grid-template-columns: 1fr 4fr;
+}
+
+nav {
+  background-color: blueviolet;
+  padding: 2em;
+  color: white;
+  width: var(--width);
+}
+
+.header {
+  grid-template-columns: min(4vw, 5rem) 1fr;
+  font-size: var(--scale);
+  align-items: center;
+}
+
+.mask-repeat{
+   mask-repeat: no-repeat;
+}
+
+.square {
+  height: calc(var(--scale) * 2);
+  width: calc(var(--scale) * 2);
+  background-color: white;
+  mask-image: url(square-opacity.svg);
+  mask-size: contain;
+}
+
+.nav-icons{
+  margin-top: 2em;
+}
+
+.nav-icon{
+  grid-template-columns: .5fr 1fr;
+  font-size: 1.5em;
+  align-items: center;
+}
+
+.home{
+  background-color: white;
+
+    height: calc(var(--scale) * 2);
+  width: calc(var(--scale) * 2);
+    mask-image: url(home.svg);
+  mask-size: contain;
+}
+
+main {
+  background-color: rgb(199, 196, 196);
+  grid-template-rows: 1fr 4fr;
+}
+
+.search {
+  background-color: white;
+  padding: 1em;
+  grid-template-rows: 1fr 1fr;
+}
+
+button {
+  display: block;
+  outline: none;
+  border: none;
+  background-color: black;
+}
+
+.pointer:hover {
+  cursor: pointer;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  height: 10px;
+  gap: 3em;
+}
+
+form div {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 1.5em;
+}
+form div.left {
+  display: grid;
+  height: 3em;
+  grid-template-columns: 1fr 10fr;
+}
+
+.search-icon {
+  mask-image: url(magnify.svg);
+  /* height: 4em; */
+  /* width: 4em; */
+}
+
+input {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.notification {
+  mask-image: url(bell-ring.svg);
+  height: 4em;
+  width: 4em;
+  background-color: black;
+}
+
+.notification:hover {
+  /* gonna make this into a left to right animation keyframes to work on*/
+  transform: rotate(10deg);
+}
+
+.circle {
+  border: 2px solid purple;
+  border-radius: 50%;
+  height: 4em;
+  width: 4em;
+  background-color: plum;
+}
+
+.right {
+  display: grid;
+  grid-template-columns: repeat(2, .5fr) 2fr;
+  gap: 0em;
+
+}
+
+.welcome{
+  display:grid;
+  grid-template-columns: .5fr 8fr 4fr;
+  align-items: center;
+  gap: 1em;
+}
+
+.welcome .circle{
+  height: 5em;
+  width: 5em;
+}
+
+.name{
+  grid-template-rows: repeat(2,1fr);
+  height: 5em;
+}
+
+.buttons{
+  grid-template-columns: repeat(3,1fr);
+  gap: .5em;
+}
+
+.btn{
+  border-radius: 1em;
+  height: 2em;
+  background-color: rgb(64, 110, 238);
+  color:white;
+
+}
+.content{
+  padding: 1em;
+  grid-template-columns: 4fr 1fr;
+  gap:1em;
+}
+
+.content > div:first-of-type{
+  grid-template-rows: 50px 3fr 3fr 3fr;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-areas:
+  "header header"
+  "card card" 
+  "card card"
+  "card card";
+  gap: 1em;
+}
+.content h3{
+  grid-area: header;
+ width: 100%;
+}
+
+.card{
+  border-left: .5em solid yellowgreen;
+  padding: .5em;
+  display: grid;
+  background-color: white;
+
+}
+
+.icons{
+  display: grid;
+  grid-template-columns: repeat(10,1fr);
+  gap: 2em;
+
+}
+
+.favorite{
+  grid-column: 8;
+  mask-image: url(star-plus-outline.svg);
+  background-color: black;
+  height: 2em;
+  width: 2em;
+}
+
+.eye{
+  mask-image: url(eye-plus-outline.svg);
+  background-color: black;
+  height: 2em;
+  width: 2em;
+}
+
+
+.share{
+  mask-image: url(share-variant-outline.svg);
+  background-color: black;
+  height: 2em;
+  width: 2em;
+}
+
+.sidebar{
+  grid-template-rows:1fr 1fr;
+  gap: 1em;
+}
+
+#test{
+  /* display: grid; */
+ grid-template-rows: 50px 1fr;
+  /* grid-template-columns: repeat(2,1fr); */
+  /* grid-auto-rows: 150px;
+  grid-template-areas: "header "
+  "info"; */
+  gap: 1em;
+
+
+}
+
+
+
+.info{
+
+  padding: .5em;
+  background-color: whitesmoke;
+}
+
+.bottom{
+  grid-template-rows: 30px 1fr;
+  /* height: 400px; */
+  /* border: 1px solid; */
+}
+
+
+.user{
+  padding: .5em;
+  align-items: center;
+  background-color: white;
+  grid-template-columns:70px 1fr ;
+  /* height: 180px; */
+}
